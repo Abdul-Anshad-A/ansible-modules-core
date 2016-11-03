@@ -1089,8 +1089,6 @@ class TaskParameters(DockerBaseClass):
         '''
         Create a LogConfig object
         '''
-        if self.log_driver is None:
-            return None
 
         options = dict(
             Type=self.log_driver,
@@ -1949,7 +1947,7 @@ def main():
         kill_signal=dict(type='str'),
         labels=dict(type='dict'),
         links=dict(type='list'),
-        log_driver=dict(type='str', choices=['json-file', 'syslog', 'journald', 'gelf', 'fluentd', 'awslogs', 'splunk'], default=None),
+        log_driver=dict(type='str', choices=['json-file', 'syslog', 'journald', 'gelf', 'fluentd', 'awslogs', 'splunk'], default='json-file'),
         log_options=dict(type='dict', aliases=['log_opt']),
         mac_address=dict(type='str'),
         memory=dict(type='str', default='0'),
